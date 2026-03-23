@@ -48,3 +48,24 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+# 📱 App Treino e Dieta
+
+protótipo mobile desenvolvido com React Native + Expo para gerenciamento de treinos e dietas personalizadas.
+
+## 🚀 Tecnologias
+
+- React Native
+- Expo
+- TypeScript
+- NativeWind
+
+## 📌 Funcionalidades
+
+- Login e cadastro
+- Tela home
+
+## 👨‍💻 Autor
+
+Vinicius Mattei
