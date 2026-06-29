@@ -10,18 +10,33 @@ import { router } from 'expo-router'
 
 import { Input } from '@/src/components/Input'
 import { Button } from '@/src/components/Button'
+import { useAuth } from '@/src/contexts/AuthContext'
+import { ApiError } from '@/src/services/api'
 
 export default function Login() {
+  const { entrar } = useAuth()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [enviando, setEnviando] = useState(false)
 
-  function handleLogin() {
+  async function handleLogin() {
     if (!email || !password) {
       Alert.alert('Atenção', 'Preencha email e senha')
       return
     }
 
-    router.push('/home')
+    setEnviando(true)
+    try {
+      await entrar(email, password)
+      router.replace('/home')
+    } catch (error) {
+      const mensagem =
+        error instanceof ApiError ? error.message : 'Não foi possível entrar'
+      Alert.alert('Erro', mensagem)
+    } finally {
+      setEnviando(false)
+    }
   }
 
   return (
@@ -43,6 +58,8 @@ export default function Login() {
             placeholder="Digite seu email"
             value={email}
             onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
           />
 
           <Input
@@ -52,7 +69,11 @@ export default function Login() {
             secureTextEntry
           />
 
-          <Button title="Entrar" onPress={handleLogin} />
+          <Button
+            title={enviando ? 'Entrando...' : 'Entrar'}
+            onPress={handleLogin}
+            disabled={enviando}
+          />
 
           <TouchableOpacity onPress={() => router.push('/register')}>
             <Text className="mt-6 text-center text-base font-medium text-violet-400">
