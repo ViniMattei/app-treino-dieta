@@ -3,9 +3,7 @@
     "name": "app-treino-dieta",
     "slug": "app-treino-dieta",
     "version": "1.0.0",
-    "slug": "app-treino-dieta",
     "scheme": "apptreinodieta",
-
     "web": {
       "bundler": "metro"
     }

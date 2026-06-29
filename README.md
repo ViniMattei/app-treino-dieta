@@ -66,6 +66,20 @@ protótipo mobile desenvolvido com React Native + Expo para gerenciamento de tre
 - Login e cadastro
 - Tela home
 
+## 🔌 Backend
+
+O app consome uma API REST própria em `/server` (Node.js + Express + TypeScript + SQLite). Para rodar localmente:
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+O servidor sobe em `http://localhost:3333`. Se for testar em emulador Android, dispositivo físico ou Expo Go, defina a variável `EXPO_PUBLIC_API_URL` (em um `.env` na raiz do app) apontando para o IP da sua máquina na rede, por exemplo `EXPO_PUBLIC_API_URL=http://192.168.0.10:3333`.
+
+Veja as regras de negócio, requisitos e arquitetura completos em [`planejamento.md`](planejamento.md).
+
 ## 👨‍💻 Autor
 
 Vinicius Mattei
