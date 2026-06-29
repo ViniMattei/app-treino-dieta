@@ -6,6 +6,11 @@
     "scheme": "apptreinodieta",
     "web": {
       "bundler": "metro"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      "expo-router",
+      "expo-web-browser"
+    ]
   }
 }
